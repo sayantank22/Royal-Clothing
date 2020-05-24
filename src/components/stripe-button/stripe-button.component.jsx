@@ -3,23 +3,25 @@ import StripeCheckout from 'react-stripe-checkout';
 
 const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
-  const publisherKey = 'pk_test_C51ExrhAuc5KwdrLv9Fv1EoW00N96Pfgzo';
-  const onToken = (token) => {
+  const publishableKey = 'pk_test_WBqax2FWVzS9QlpJScO07iuL';
+
+  const onToken = token => {
     console.log(token);
-    alert('Payment Success!');
+    alert('Payment Succesful!');
   };
+
   return (
     <StripeCheckout
       label='Pay Now'
-      name='Royal Clothing Ltd.'
+      name='CRWN Clothing Ltd.'
       billingAddress
       shippingAddress
-      image={require('../../assets/crown.svg')}
+      image='https://svgshare.com/i/CUz.svg'
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel='Pay Now'
       token={onToken}
-      stripeKey={publisherKey}
+      stripeKey={publishableKey}
     />
   );
 };

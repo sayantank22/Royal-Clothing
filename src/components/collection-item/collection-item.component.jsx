@@ -8,12 +8,13 @@ import './collection-item.styles.scss';
 
 const CollectionItem = ({ item, addItem }) => {
   const { name, price, imageUrl } = item;
+
   return (
     <div className='collection-item'>
       <div
         className='image'
         style={{
-          backgroundImage: `url(${imageUrl})`,
+          backgroundImage: `url(${imageUrl})`
         }}
       />
       <div className='collection-footer'>
@@ -27,8 +28,11 @@ const CollectionItem = ({ item, addItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
+const mapDispatchToProps = dispatch => ({
+  addItem: item => dispatch(addItem(item))
 });
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default connect(
+  null,
+  mapDispatchToProps
+)(CollectionItem);
